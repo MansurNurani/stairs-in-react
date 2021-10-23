@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import MyComp from './Components/MyComp';
+import { useState } from "react"
 
+function MakeList(count) {
+  let myArr = [];
+  for (let index = 0; index < count; index++) {
+    const element = <MyComp size={20 + index * 15} />
+    myArr.push(element);
+  }
+  return myArr;
+}
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [count, setCount] = useState([]);
+  const handleChange = (e) => {
+    setCount(e.target.value);
+    console.log(e.target.value);
+}
+return (
+  <>
+    <input type="number" step="1" max="20" min="0" defaultValue="0" style={{width:"300px",height:"30px"}} onChange={handleChange} />
+
+    {MakeList(count)}
+  </>
+);
 }
 
 export default App;
