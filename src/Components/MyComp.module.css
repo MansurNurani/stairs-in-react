@@ -1,9 +1,9 @@
-:global .a {
+/* :global .a {
     width: var(--size);
     height: calc(var(--size) * 2);
     border: 3px double green;
     background-color: red;
-  }
+  } */
    .a {
     height: 30px;/* var(--size); */
     width: calc(var(--size) * 2);

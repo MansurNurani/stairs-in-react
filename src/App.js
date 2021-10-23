@@ -11,18 +11,21 @@ function MakeList(count) {
   return myArr;
 }
 function App() {
+
   const [count, setCount] = useState([]);
+
   const handleChange = (e) => {
     setCount(e.target.value);
     console.log(e.target.value);
-}
-return (
-  <>
-    <input type="number" step="1" max="20" min="0" defaultValue="0" style={{width:"300px",height:"30px"}} onChange={handleChange} />
+  }
+  
+  return (
+    <>
+      <input type="number" step="1" max="20" min="0" defaultValue="0" style={{ width: "300px", height: "30px" }} onChange={handleChange} />
 
-    {MakeList(count)}
-  </>
-);
+      {MakeList(count)}
+    </>
+  );
 }
 
 export default App;
